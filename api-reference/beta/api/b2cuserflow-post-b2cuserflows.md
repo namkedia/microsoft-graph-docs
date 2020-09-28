@@ -55,6 +55,8 @@ In the request body, provide a JSON representation of a [b2cUserFlow](../resourc
 |userFlowType|String|Required. The type of user flow you are creating. The supported values for **userFlowType** are:<br/><ul><li>`signUp`</li><li>`signIn`</li><li>`signUpOrSignIn`</li><li>`passwordReset`</li><li>`profileUpdate`</li><li>`resourceOwnerPasswordCredentialSignIn`</li>|
 |userFlowTypeVersion|Float|Required. The version of the user flow.|
 |identityProviders|[identityProvider](../resources/identityprovider.md) collection|Optional. The identity providers you want to include in the user flow.|
+|b2cAuthenticationMethods|String|This property can be used to configure which local accounts are allowed for sign-up/sign-in. The supported values for **b2cAuthenticationMethods** are:<br/><ul><li>`emailWithPassword`</li><li>`userName`</li><li>`phoneWithOneTimePassword`</li>. The service allows only certain combinations of `phoneWithOneTimePassword`, `emailWithPassword` and `userName` to be enabled here based on user journey type and other conditions. A v1 or v2 user flow allows either one of `emailWithPassword` or `userName` methods to authenticate. And it does not allow `phoneWithOneTimePassword` method. By default this value will align with b2cAuthenticationMethod enabled for tenant. If only one b2cAuthenticationMethod is enabled, that is chosen here for default value else `emailWithPassword` is th default authentication method.|
+
 
 ## Response
 
@@ -84,7 +86,8 @@ Content-length: 154
 {
     "id": "Customer",
     "userFlowType": "signUpOrSignIn",
-    "userFlowTypeVersion": 3
+    "userFlowTypeVersion": 3,
+    "authenticationMethods": "emailWithPassword"
 }
 ```
 # [C#](#tab/csharp)
@@ -122,7 +125,8 @@ Content-type: application/json
 {
     "id": "B2C_1_Customer",
     "userFlowType": "signUpOrSignIn",
-    "userFlowTypeVersion": 3
+    "userFlowTypeVersion": 3,
+    "authenticationMethods": "emailWithPassword"
 }
 ```
 
@@ -149,6 +153,7 @@ Content-length: 154
     "id": "Customer",
     "userFlowType": "signUpOrSignIn",
     "userFlowTypeVersion": 3,
+    "authenticationMethods": "emailWithPassword",
     "identityProviders": [
         {
             "id": "Facebook-OAuth",
@@ -193,7 +198,8 @@ Content-type: application/json
 {
     "id": "B2C_1_Customer",
     "userFlowType": "signUpOrSignIn",
-    "userFlowTypeVersion": 3
+    "userFlowTypeVersion": 3,
+    "authenticationMethods": "emailWithPassword"
 }
 ```
 

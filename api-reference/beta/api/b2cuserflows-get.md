@@ -107,7 +107,8 @@ Content-type: application/json
 {
     "id": "B2C_1_CustomerSignUp",
     "userFlowType": "signUpOrSignIn",
-    "userFlowTypeVersion": 1
+    "userFlowTypeVersion": 1,
+    "authenticationMethods": "emailWithPassword"
 }
 ```
 

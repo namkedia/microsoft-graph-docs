@@ -115,12 +115,14 @@ Content-type: application/json
       {
           "id": "B2C_1_CustomerSignUp",
           "userFlowType": "signUp",
-          "userFlowTypeVersion": 1
+          "userFlowTypeVersion": 1,
+          "authenticationMethods": "emailWithPassword"
       },
       {
           "id": "B2C_1_CustomerSignIn",
           "userFlowType": "signIn",
-          "userFlowTypeVersion": 1
+          "userFlowTypeVersion": 1,
+          "authenticationMethods": "emailWithPassword"
       },
     ]
 }
@@ -182,6 +184,7 @@ Content-type: application/json
           "id": "B2C_1_CustomerSignUp",
           "userFlowType": "signUp",
           "userFlowTypeVersion": 1,
+          "authenticationMethods": "emailWithPassword",
           "identityProviders": [
               {
                 "id": "Facebook-OAuth",
@@ -196,6 +199,7 @@ Content-type: application/json
           "id": "B2C_1_CustomerSignIn",
           "userFlowType": "signIn",
           "userFlowTypeVersion": 1,
+          "authenticationMethods": "emailWithPassword",
           "identityProviders": [
               {
                 "id": "Facebook-OAuth",
